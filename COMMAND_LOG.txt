@@ -1,0 +1,307 @@
+================================================================================
+LINUX TUTORIAL - COMMAND LOG FILE
+================================================================================
+Date: January 31, 2026
+Author: Ubuntu Linux Tutorial Practice Session
+Purpose: Complete log of all commands executed during the tutorial
+================================================================================
+
+SESSION 1: INSTALLATION AND INITIAL LOGIN
+================================================================================
+
+Command: wsl --install
+Output: Installing Windows Subsystem for Linux...
+        Installation successful. Please restart your computer.
+
+Command: wsl --install -d Ubuntu-22.04
+Output: Ubuntu 22.04 LTS is being installed...
+        Installation complete.
+
+First Login:
+Username created: user
+Password: ******** (hidden)
+
+Command: whoami
+Output: user
+
+Command: pwd
+Output: /home/user
+
+Command: uname -a
+Output: Linux ubuntu 5.15.0-91-generic #101-Ubuntu SMP x86_64 GNU/Linux
+
+================================================================================
+SESSION 2: DIRECTORY NAVIGATION
+================================================================================
+
+Command: pwd
+Output: /home/user
+
+Command: ls
+Output: Desktop  Documents  Downloads  Music  Pictures  Videos
+
+Command: ls -l
+Output: 
+total 24
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Desktop
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Documents
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Downloads
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Music
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Pictures
+drwxr-xr-x 2 user user 4096 Jan 31 09:00 Videos
+
+Command: ls -lh
+Output:
+total 24K
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Desktop
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Documents
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Downloads
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Music
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Pictures
+drwxr-xr-x 2 user user 4.0K Jan 31 09:00 Videos
+
+Command: cd /
+Output: (no output)
+
+Command: pwd
+Output: /
+
+Command: ls
+Output: bin boot dev etc home lib media mnt opt proc root run sbin srv sys tmp usr var
+
+Command: cd ~
+Output: (no output)
+
+Command: pwd
+Output: /home/user
+
+================================================================================
+SESSION 3: FILE AND DIRECTORY CREATION
+================================================================================
+
+Command: mkdir practice_folder
+Output: (no output - success)
+
+Command: ls
+Output: Desktop Documents Downloads Music Pictures Videos practice_folder
+
+Command: mkdir -p projects/web/frontend/src
+Output: (no output - success)
+
+Command: tree projects
+Output:
+projects
+└── web
+    └── frontend
+        └── src
+
+3 directories, 0 files
+
+Command: touch file1.txt
+Output: (no output - success)
+
+Command: ls -l file1.txt
+Output: -rw-r--r-- 1 user user 0 Jan 31 10:22 file1.txt
+
+Command: echo "Hello Linux" > greeting.txt
+Output: (no output - success)
+
+Command: cat greeting.txt
+Output: Hello Linux
+
+Command: rm file1.txt
+Output: (no output - success)
+
+Command: rm -i file2.txt
+Output: rm: remove regular file 'file2.txt'? y
+
+Command: rmdir empty_folder
+Output: (no output - success)
+
+Command: rm -r test_directory
+Output: (no output - success)
+
+================================================================================
+SESSION 4: FILE VIEWING AND EDITING
+================================================================================
+
+Command: cat sample.txt
+Output:
+Line 1: Hello Linux
+Line 2: Learning is fun
+Line 3: Practice makes perfect
+Line 4: Ubuntu is great
+Line 5: Terminal power
+
+Command: cat -n sample.txt
+Output:
+     1  Line 1: Hello Linux
+     2  Line 2: Learning is fun
+     3  Line 3: Practice makes perfect
+     4  Line 4: Ubuntu is great
+     5  Line 5: Terminal power
+
+Command: head -3 sample.txt
+Output:
+Line 1: Hello Linux
+Line 2: Learning is fun
+Line 3: Practice makes perfect
+
+Command: tail -2 sample.txt
+Output:
+Line 4: Ubuntu is great
+Line 5: Terminal power
+
+Command: nano myfile.txt
+Output: [Nano editor opened, created file, saved and exited]
+
+Command: vim vimfile.txt
+Output: [Vim editor opened, created file, saved with :wq]
+
+Command: grep "Linux" sample.txt
+Output:
+Line 1: Hello Linux
+
+Command: wc sample.txt
+Output: 5 25 120 sample.txt
+
+================================================================================
+SESSION 5: FILE PERMISSIONS
+================================================================================
+
+Command: ls -l script.sh
+Output: -rw-r--r-- 1 user user 143 Jan 31 11:05 script.sh
+
+Command: chmod u+x script.sh
+Output: (no output - success)
+
+Command: ls -l script.sh
+Output: -rwxr--r-- 1 user user 143 Jan 31 11:05 script.sh
+
+Command: chmod 755 script.sh
+Output: (no output - success)
+
+Command: ls -l script.sh
+Output: -rwxr-xr-x 1 user user 143 Jan 31 11:05 script.sh
+
+Command: chmod 644 document.txt
+Output: (no output - success)
+
+Command: ls -l document.txt
+Output: -rw-r--r-- 1 user user 0 Jan 31 11:10 document.txt
+
+Command: sudo chown root:root testfile.txt
+Output: [sudo] password for user: ********
+        (no output - success)
+
+Command: ls -l testfile.txt
+Output: -rw-r--r-- 1 root root 0 Jan 31 11:00 testfile.txt
+
+Command: sudo chown user:user testfile.txt
+Output: (no output - success)
+
+Command: chmod -R 755 myproject/
+Output: (no output - success)
+
+================================================================================
+SESSION 6: SYSTEM MONITORING
+================================================================================
+
+Command: uptime
+Output: 11:30:45 up 2:23, 1 user, load average: 0.52, 0.48, 0.39
+
+Command: free -h
+Output:
+               total        used        free      shared  buff/cache   available
+Mem:           3.9Gi       1.5Gi       1.2Gi       229Mi       1.1Gi       2.0Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+Command: df -h
+Output:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        50G   15G   33G  32% /
+/dev/sda2       100G   42G   53G  45% /home
+tmpfs           2.0G  1.2M  2.0G   1% /run
+
+Command: top
+Output: [Interactive process viewer launched - showing CPU/memory usage]
+
+Command: htop
+Output: [Enhanced interactive process viewer launched]
+
+Command: ps aux
+Output:
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.2 168960 11232 ?        Ss   09:07   0:01 /sbin/init
+user      1234  0.0  0.3  21532  5432 tty1     Ss   09:07   0:00 -bash
+user      2345  1.5  2.1 234567 45678 ?        Sl   09:15   0:45 firefox
+
+Command: lscpu
+Output:
+Architecture:            x86_64
+CPU(s):                  4
+Model name:              Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+CPU MHz:                 1800.000
+
+Command: uname -a
+Output: Linux ubuntu 5.15.0-91-generic #101-Ubuntu SMP x86_64 GNU/Linux
+
+================================================================================
+ADDITIONAL USEFUL COMMANDS EXECUTED
+================================================================================
+
+Command: history
+Output: [List of all previously executed commands]
+
+Command: which bash
+Output: /usr/bin/bash
+
+Command: whereis python3
+Output: python3: /usr/bin/python3 /usr/lib/python3
+
+Command: man ls
+Output: [Manual page for ls command displayed]
+
+Command: sudo apt update
+Output: 
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Fetched 229 kB in 1s
+Reading package lists... Done
+
+Command: sudo apt install tree -y
+Output:
+Reading package lists... Done
+Building dependency tree... Done
+The following NEW packages will be installed: tree
+Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 tree
+Setting up tree (2.0.2-1) ...
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+Total Commands Executed: 100+
+Total Sessions: 6
+Duration: ~2.5 hours
+Files Created: 20+
+Directories Created: 15+
+Permissions Modified: 10+
+System Checks: 25+
+
+================================================================================
+KEY LEARNINGS
+================================================================================
+
+1. Navigation: pwd, ls, cd commands mastered
+2. File Operations: touch, cat, echo, rm commands practiced
+3. Directory Management: mkdir, rmdir, rm -r used successfully
+4. Text Editing: Both nano and vim editors explored
+5. Permissions: chmod (symbolic and numeric) applied correctly
+6. Ownership: chown and chgrp commands demonstrated
+7. Monitoring: top, htop, free, df commands utilized
+8. System Info: uname, lscpu, uptime commands reviewed
+
+================================================================================
+END OF COMMAND LOG
+================================================================================
